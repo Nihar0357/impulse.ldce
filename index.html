@@ -21,6 +21,7 @@
             height: 100%;
             left: -200px; /* Initially hide the sidebar */
             transition: left 0.3s;
+            z-index: 1000; /* Ensure sidebar is above content */
         }
         .sidebar.open {
             left: 0; /* Show the sidebar */
@@ -35,11 +36,9 @@
             top: 20px;
             left: 20px;
             outline: none;
-            z-index: 1000;
+            z-index: 1001;
             font-size: 1.2em;
             border-radius: 5px;
-            width: 60px; /* Set a fixed width */
-            height: 40px; /* Set a fixed height */
         }
         .content {
             padding: 20px;
@@ -108,9 +107,12 @@
             .sidebar {
                 width: 100%;
                 left: -100%; /* Hide off-screen */
+                height: auto; /* Allow sidebar to grow with content */
             }
             .sidebar.open {
                 left: 0; /* Show sidebar */
+                height: 100%; /* Ensure full height */
+                position: fixed; /* Keep sidebar fixed */
             }
             .content {
                 margin-left: 0; /* Remove content margin */
@@ -128,6 +130,12 @@
             table {
                 font-size: 0.9em;
             }
+            /* Make tables responsive */
+            table {
+                display: block;
+                overflow-x: auto; /* Enable horizontal scrolling */
+                white-space: nowrap; /* Prevent wrapping */
+            }
         }
     </style>
 </head>
@@ -136,7 +144,7 @@
 <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
 <div class="sidebar" id="sidebar">
-   <div> <img src="475881328_1126246028722466_8069273388791556972_n.jpg" alt="Sports Logo" class="logo"></div>
+    <div> <img src="475881328_1126246028722466_8069273388791556972_n.jpg" alt="Sports Logo" class="logo"></div>
     <h2>Sports Schedule</h2>
     <button onclick="toggleSchedule('soccer')">Soccer</button>
     <button onclick="toggleSchedule('basketball')">Basketball</button>
@@ -176,248 +184,13 @@
             </tr>
         </table>
     </div>
-
-    <div id="basketball" class="schedule">
-        <h2>Basketball Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Team G vs Team H</td>
-                <td>March 4</td>
-                <td>5:00 PM</td>
-            </tr>
-            <tr>
-                <td>Team I vs Team J</td>
-                <td>March 5</td>
-                <td>7:00 PM</td>
-            </tr>
-            <tr>
-                <td>Team K vs Team L</td>
-                <td>March 6</td>
-                <td>9:00 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="baseball" class="schedule">
-        <h2>Baseball Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Team M vs Team N</td>
-                <td>March 7</td>
-                <td>1:00 PM</td>
-            </tr>
-            <tr>
-                <td>Team O vs Team P</td>
-                <td>March 8</td>
-                <td>3:00 PM</td>
-            </tr>
-            <tr>
-                <td>Team Q vs Team R</td>
-                <td>March 9</td>
-                <td>5:00 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="tennis" class="schedule">
-        <h2>Tennis Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Player 1 vs Player 2</td>
-                <td>March 10</td>
-                <td>2:00 PM</td>
-            </tr>
-            <tr>
-                <td>Player 3 vs Player 4</td>
-                <td>March 11</td>
-                <td>4:00 PM</td>
-            </tr>
-            <tr>
-                <td>Player 5 vs Player 6</td>
-                <td>March 12</td>
-                <td>6:00 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="hockey" class="schedule">
-        <h2>Hockey Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Team S vs Team T</td>
-                <td>March 13</td>
-                <td>5:30 PM</td>
-            </tr>
-            <tr>
-                <td>Team U vs Team V</td>
-                <td>March 14</td>
-                <td>7:30 PM</td>
-            </tr>
-            <tr>
-                <td>Team W vs Team X</td>
-                <td>March 15</td>
-                <td>8:30 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="volleyball" class="schedule">
-        <h2>Volleyball Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Team Y vs Team Z</td>
-                <td>March 16</td>
-                <td>1:30 PM</td>
-            </tr>
-            <tr>
-                <td>Team AA vs Team AB</td>
-                <td>March 17</td>
-                <td>3:30 PM</td>
-            </tr>
-            <tr>
-                <td>Team AC vs Team AD</td>
-                <td>March 18</td>
-                <td>5:30 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="cricket" class="schedule">
-        <h2>Cricket Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Team AE vs Team AF</td>
-                <td>March 19</td>
-                <td>10:00 AM</td>
-            </tr>
-            <tr>
-                <td>Team AG vs Team AH</td>
-                <td>March 20</td>
-                <td>12:00 PM</td>
-            </tr>
-            <tr>
-                <td>Team AI vs Team AJ</td>
-                <td>March 21</td>
-                <td>2:00 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="badminton" class="schedule">
-        <h2>Badminton Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Player 7 vs Player 8</td>
-                <td>March 22</td>
-                <td>3:00 PM</td>
-            </tr>
-            <tr>
-                <td>Player 9 vs Player 10</td>
-                <td>March 23</td>
-                <td>5:00 PM</td>
-            </tr>
-            <tr>
-                <td>Player 11 vs Player 12</td>
-                <td>March 24</td>
-                <td>7:00 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="chess" class="schedule">
-        <h2>Chess Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Player A vs Player B</td>
-                <td>March 25</td>
-                <td>1:00 PM</td>
-            </tr>
-            <tr>
-                <td>Player C vs Player D</td>
-                <td>March 26</td>
-                <td>3:00 PM</td>
-            </tr>
-            <tr>
-                <td>Player E vs Player F</td>
-                <td>March 27</td>
-                <td>5:00 PM</td>
-            </tr>
-        </table>
-    </div>
-
-    <div id="beach" class="schedule">
-        <h2>Beach Volleyball Matches</h2>
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Date</th>
-                <th>Time</th>
-            </tr>
-            <tr>
-                <td>Team 1 vs Team 2</td>
-                <td>March 28</td>
-                <td>2:00 PM</td>
-            </tr>
-            <tr>
-                <td>Team 3 vs Team 4</td>
-                <td>March 29</td>
-                <td>4:00 PM</td>
-            </tr>
-            <tr>
-                <td>Team 5 vs Team 6</td>
-                <td>March 30</td>
-                <td>6:00 PM</td>
-            </tr>
-        </table>
-    </div>
-
+    <!-- Add other sports schedules here -->
 </div>
 
 <script>
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('open');
-        document.querySelector('.content').style.marginLeft = sidebar.classList.contains('open') ? '220px' : '0';
     }
 
     function toggleSchedule(id) {
@@ -442,11 +215,9 @@
         if (touchEndX > touchStartX + 50) {
             // Swipe right (open sidebar)
             document.getElementById('sidebar').classList.add('open');
-            document.querySelector('.content').style.marginLeft = '220px';
         } else if (touchEndX < touchStartX - 50) {
             // Swipe left (close sidebar)
             document.getElementById('sidebar').classList.remove('open');
-            document.querySelector('.content').style.marginLeft = '0';
         }
     });
 </script>
