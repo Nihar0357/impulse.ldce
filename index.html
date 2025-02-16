@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .toggle {
+            margin: 10px 0;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+        }
+        .schedule {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        .logo {
+            max-width: 200px; /* Adjust logo size */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<img src="path/to/your/logo.png" alt="Sports Logo" class="logo">
+
+<h1>Sports Schedule</h1>
+
+<button class="toggle" onclick="toggleSchedule('soccer')">Soccer Schedule</button>
+<div id="soccer" class="schedule">
+    <!-- Soccer schedule content goes here -->
+</div>
+
+<button class="toggle" onclick="toggleSchedule('basketball')">Basketball Schedule</button>
+<div id="basketball" class="schedule">
+    <!-- Basketball schedule content goes here -->
+</div>
+
+<button class="toggle" onclick="toggleSchedule('baseball')">Baseball Schedule</button>
+<div id="baseball" class="schedule">
+    <!-- Baseball schedule content goes here -->
+</div>
+
+<button class="toggle" onclick="toggleSchedule('tennis')">Tennis Schedule</button>
+<div id="tennis" class="schedule">
+    <!-- Tennis schedule content goes here -->
+</div>
+
+<button class="toggle" onclick="toggleSchedule('hockey')">Hockey Schedule</button>
+<div id="hockey" class="schedule">
+    <!-- Hockey schedule content goes here -->
+</div>
+
+<button class="toggle" onclick="toggleSchedule('volleyball')">Volleyball Schedule</button>
+<div id="volleyball" class="schedule">
+    <!-- Volleyball schedule content goes here -->
+</div>
+
+<button class="toggle" onclick="toggleSchedule('cricket')">Cricket Schedule</button>
+<div id="cricket" class="schedule">
+    <!-- Cricket schedule content goes here -->
+</div>
+
+<button class="toggle" onclick="toggleSchedule('badminton')">Badminton Schedule</button>
+<div id="badminton" class="schedule">
+    <!-- Badminton schedule content goes here -->
+</div>
+
+<script>
+    function toggleSchedule(id) {
+        const schedule = document.getElementById(id);
+        if (schedule.style.display === "block") {
+            schedule.style.display = "none";
+        } else {
+            schedule.style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
