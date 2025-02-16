@@ -10,6 +10,7 @@
             margin: 0;
             display: flex;
             transition: margin-left 0.3s;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         .sidebar {
             width: 200px;
@@ -28,18 +29,23 @@
             cursor: pointer;
             background-color: #007BFF;
             color: white;
-            padding: 10px;
+            padding: 10px 15px;
             border: none;
             position: absolute;
             top: 20px;
             left: 20px;
             outline: none;
-            z-index: 1000; /* Ensure the button is above other content */
+            z-index: 1000;
+            font-size: 1.2em;
+            border-radius: 5px;
+            width: 60px; /* Set a fixed width */
+            height: 40px; /* Set a fixed height */
         }
         .content {
             padding: 20px;
-            margin-left: 20px;
+            margin-left: 220px; /* Account for sidebar width */
             flex-grow: 1;
+            transition: margin-left 0.3s;
         }
         .schedule {
             display: none;
@@ -50,7 +56,7 @@
             margin-top: 5px;
         }
         .logo {
-            max-width: 180px; /* Adjust logo size */
+            max-width: 180px;
             margin-bottom: 20px;
         }
         h2 {
@@ -66,49 +72,59 @@
             border: 1px solid #007BFF;
             padding: 8px;
             text-align: left;
-            background-color: #e9ecef; /* Light background for table cells */
+            background-color: #e9ecef;
         }
         th {
             background-color: #007BFF;
             color: white;
         }
         tr:hover {
-            background-color: #007BFF; /* Change background on row hover */
-            color: white; /* Change text color on hover */
+            background-color: #007BFF;
+            color: white;
         }
-        
+
         /* Button styles */
         button {
             display: block;
             width: 100%;
-            padding: 10px;
-            background-color: #28a745; /* Green button */
+            padding: 10px 15px;
+            background-color: #28a745;
             color: white;
             border: none;
             border-radius: 5px;
             margin: 5px 0;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-size: 1.2em;
         }
         button:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color: #218838;
         }
 
         /* Responsive styles */
         @media screen and (max-width: 768px) {
             .sidebar {
-                width: 100%; /* Full width on small screens */
+                width: 100%;
                 left: -100%; /* Hide off-screen */
             }
             .sidebar.open {
                 left: 0; /* Show sidebar */
             }
             .content {
-                margin-left: 0; /* Adjust content margin */
+                margin-left: 0; /* Remove content margin */
             }
             .toggle-btn {
-                top: 10px; /* Adjust button position */
-                left: 10px; /* Adjust button position */
+                top: 10px;
+                left: 10px;
+                font-size: 1.5em;
+                padding: 12px 20px;
+            }
+            button {
+                font-size: 1.5em;
+                padding: 12px 20px;
+            }
+            table {
+                font-size: 0.9em;
             }
         }
     </style>
@@ -210,6 +226,106 @@
     </div>
 
     <div id="tennis" class="schedule">
+        <h2>Tennis Matches</h2>
+        <table>
+            <tr>
+                <th>Match</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Player 1 vs Player 2</td>
+                <td>March 10</td>
+                <td>2:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 3 vs Player 4</td>
+                <td>March 11</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 5 vs Player 6</td>
+                <td>March 12</td>
+                <td>6:00 PM</td>
+            </tr>
+        </table>
+    </div>
+<div id="tennis" class="schedule">
+        <h2>Tennis Matches</h2>
+        <table>
+            <tr>
+                <th>Match</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Player 1 vs Player 2</td>
+                <td>March 10</td>
+                <td>2:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 3 vs Player 4</td>
+                <td>March 11</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 5 vs Player 6</td>
+                <td>March 12</td>
+                <td>6:00 PM</td>
+            </tr>
+        </table>
+    </div>
+<div id="tennis" class="schedule">
+        <h2>Tennis Matches</h2>
+        <table>
+            <tr>
+                <th>Match</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Player 1 vs Player 2</td>
+                <td>March 10</td>
+                <td>2:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 3 vs Player 4</td>
+                <td>March 11</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 5 vs Player 6</td>
+                <td>March 12</td>
+                <td>6:00 PM</td>
+            </tr>
+        </table>
+    </div><div id="tennis" class="schedule">
+        <h2>Tennis Matches</h2>
+        <table>
+            <tr>
+                <th>Match</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+            <tr>
+                <td>Player 1 vs Player 2</td>
+                <td>March 10</td>
+                <td>2:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 3 vs Player 4</td>
+                <td>March 11</td>
+                <td>4:00 PM</td>
+            </tr>
+            <tr>
+                <td>Player 5 vs Player 6</td>
+                <td>March 12</td>
+                <td>6:00 PM</td>
+            </tr>
+        </table>
+    </div>
+
+<div id="tennis" class="schedule">
         <h2>Tennis Matches</h2>
         <table>
             <tr>
@@ -344,17 +460,38 @@
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('open');
+        document.querySelector('.content').style.marginLeft = sidebar.classList.contains('open') ? '220px' : '0';
     }
 
     function toggleSchedule(id) {
         const schedules = document.querySelectorAll('.schedule');
         schedules.forEach(schedule => {
-            schedule.style.display = 'none'; // Hide all schedules
+            schedule.style.display = 'none';
         });
 
         const selectedSchedule = document.getElementById(id);
-        selectedSchedule.style.display = selectedSchedule.style.display === "block" ? "none" : "block"; // Toggle selected schedule
+        selectedSchedule.style.display = selectedSchedule.style.display === "block" ? "none" : "block";
     }
+
+    // Swipe functionality for touch devices
+    let touchStartX = 0;
+
+    document.addEventListener('touchstart', function (event) {
+        touchStartX = event.changedTouches[0].clientX;
+    });
+
+    document.addEventListener('touchend', function (event) {
+        const touchEndX = event.changedTouches[0].clientX;
+        if (touchEndX > touchStartX + 50) {
+            // Swipe right (open sidebar)
+            document.getElementById('sidebar').classList.add('open');
+            document.querySelector('.content').style.marginLeft = '220px';
+        } else if (touchEndX < touchStartX - 50) {
+            // Swipe left (close sidebar)
+            document.getElementById('sidebar').classList.remove('open');
+            document.querySelector('.content').style.marginLeft = '0';
+        }
+    });
 </script>
 
 </body>
