@@ -7,19 +7,38 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            display: flex;
+            transition: margin-left 0.3s;
         }
-        .toggle {
-            margin: 10px 0;
+        .sidebar {
+            width: 200px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            position: fixed;
+            height: 100%;
+            left: -200px; /* Initially hide the sidebar */
+            transition: left 0.3s;
+        }
+        .sidebar.open {
+            left: 0; /* Show the sidebar */
+        }
+        .toggle-btn {
             cursor: pointer;
             background-color: #007BFF;
             color: white;
             padding: 10px;
             border: none;
-            text-align: left;
-            width: 100%;
+            position: absolute;
+            top: 20px;
+            left: 20px;
             outline: none;
-            font-size: 16px;
+        }
+        .content {
+            padding: 20px;
+            margin-left: 20px;
+            flex-grow: 1;
         }
         .schedule {
             display: none;
@@ -28,65 +47,76 @@
             margin-top: 5px;
         }
         .logo {
-            max-width: 200px; /* Adjust logo size */
+            max-width: 180px; /* Adjust logo size */
             margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-<img src="https://instagram.famd1-1.fna.fbcdn.net/v/t51.2885-19/475881328_1126246028722466_8069273388791556972_n.jpg?stp=dst-jpg_s320x320_tt6&_nc_ht=instagram.famd1-1.fna.fbcdn.net&_nc_cat=102&_nc_oc=Q6cZ2AEu-5m8304Xk_8kIN4jcJ1lowqy8pWfXnILgIOErEkeKvkD8R51i6JsPTvj7gf50lycGfrAEP0-E3MgvtyQxV_w&_nc_ohc=lvEELmYfZ2wQ7kNvgF2VNCh&_nc_gid=ffae1a36e49f40b7807b7db9c96820bd&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AYCWz0duaBQssyLrFvM533kyEqtzUjbTAFMkQFWjnbJLsA&oe=67B7F26B&_nc_sid=8b3546" alt="Sports Logo" class="logo">
+<button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-<h1>Sports Schedule</h1>
-
-<button class="toggle" onclick="toggleSchedule('soccer')">Soccer Schedule</button>
-<div id="soccer" class="schedule">
-    <!-- Soccer schedule content goes here -->
+<div class="sidebar" id="sidebar">
+    <img src="path/to/your/logo.png" alt="Sports Logo" class="logo">
+    <h2>Sports Schedule</h2>
+    <button onclick="toggleSchedule('soccer')">Soccer</button>
+    <button onclick="toggleSchedule('basketball')">Basketball</button>
+    <button onclick="toggleSchedule('baseball')">Baseball</button>
+    <button onclick="toggleSchedule('tennis')">Tennis</button>
+    <button onclick="toggleSchedule('hockey')">Hockey</button>
+    <button onclick="toggleSchedule('volleyball')">Volleyball</button>
+    <button onclick="toggleSchedule('cricket')">Cricket</button>
+    <button onclick="toggleSchedule('badminton')">Badminton</button>
 </div>
 
-<button class="toggle" onclick="toggleSchedule('basketball')">Basketball Schedule</button>
-<div id="basketball" class="schedule">
-    <!-- Basketball schedule content goes here -->
-</div>
+<div class="content">
+    <div id="soccer" class="schedule">
+        <!-- Soccer schedule content goes here -->
+    </div>
 
-<button class="toggle" onclick="toggleSchedule('baseball')">Baseball Schedule</button>
-<div id="baseball" class="schedule">
-    <!-- Baseball schedule content goes here -->
-</div>
+    <div id="basketball" class="schedule">
+        <!-- Basketball schedule content goes here -->
+    </div>
 
-<button class="toggle" onclick="toggleSchedule('tennis')">Tennis Schedule</button>
-<div id="tennis" class="schedule">
-    <!-- Tennis schedule content goes here -->
-</div>
+    <div id="baseball" class="schedule">
+        <!-- Baseball schedule content goes here -->
+    </div>
 
-<button class="toggle" onclick="toggleSchedule('hockey')">Hockey Schedule</button>
-<div id="hockey" class="schedule">
-    <!-- Hockey schedule content goes here -->
-</div>
+    <div id="tennis" class="schedule">
+        <!-- Tennis schedule content goes here -->
+    </div>
 
-<button class="toggle" onclick="toggleSchedule('volleyball')">Volleyball Schedule</button>
-<div id="volleyball" class="schedule">
-    <!-- Volleyball schedule content goes here -->
-</div>
+    <div id="hockey" class="schedule">
+        <!-- Hockey schedule content goes here -->
+    </div>
 
-<button class="toggle" onclick="toggleSchedule('cricket')">Cricket Schedule</button>
-<div id="cricket" class="schedule">
-    <!-- Cricket schedule content goes here -->
-</div>
+    <div id="volleyball" class="schedule">
+        <!-- Volleyball schedule content goes here -->
+    </div>
 
-<button class="toggle" onclick="toggleSchedule('badminton')">Badminton Schedule</button>
-<div id="badminton" class="schedule">
-    <!-- Badminton schedule content goes here -->
+    <div id="cricket" class="schedule">
+        <!-- Cricket schedule content goes here -->
+    </div>
+
+    <div id="badminton" class="schedule">
+        <!-- Badminton schedule content goes here -->
+    </div>
 </div>
 
 <script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+
     function toggleSchedule(id) {
-        const schedule = document.getElementById(id);
-        if (schedule.style.display === "block") {
-            schedule.style.display = "none";
-        } else {
-            schedule.style.display = "block";
-        }
+        const schedules = document.querySelectorAll('.schedule');
+        schedules.forEach(schedule => {
+            schedule.style.display = 'none'; // Hide all schedules
+        });
+
+        const selectedSchedule = document.getElementById(id);
+        selectedSchedule.style.display = selectedSchedule.style.display === "block" ? "none" : "block"; // Toggle selected schedule
     }
 </script>
 
